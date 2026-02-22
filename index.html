@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌸 Hani-Kong — The Sweetest Pup</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;800&family=Gaegu:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --pink:#FFB6C1;--pink-light:#FFF0F3;--pink-dark:#E8879C;
+            --peach:#FFDAB9;--lavender:#E6E0F3;--mint:#D4EDDA;
+            --brown:#6B4226;--cream:#FFF8F0;--gold:#DAA520;
+        }
+        *{margin:0;padding:0;box-sizing:border-box;}
+        body{font-family:'Baloo 2',cursive;background:var(--cream);color:var(--brown);overflow-x:hidden;}
+
+        /* NAV */
+        nav{background:var(--pink);padding:12px 0;text-align:center;position:sticky;top:0;z-index:100;box-shadow:0 2px 10px rgba(0,0,0,.1);}
+        nav .logo{font-family:'Gaegu',cursive;font-size:2rem;font-weight:700;color:#fff;text-shadow:2px 2px 0 var(--pink-dark);}
+        nav .nav-links{margin-top:4px;}
+        nav .nav-links a{color:#fff;text-decoration:none;margin:0 16px;font-size:.9rem;font-weight:600;text-transform:uppercase;letter-spacing:1px;transition:opacity .2s;}
+        nav .nav-links a:hover{opacity:.7;}
+
+        /* HERO */
+        .hero{background:linear-gradient(135deg,var(--pink-light),var(--peach),var(--pink-light));padding:60px 20px 40px;text-align:center;position:relative;}
+        .hero::before{content:'🌸 🐾 🌸 🐾 🌸 🐾 🌸';position:absolute;top:10px;left:50%;transform:translateX(-50%);font-size:1.2rem;letter-spacing:8px;opacity:.5;}
+        .hero-badge{display:inline-block;background:var(--gold);color:#fff;padding:6px 24px;border-radius:30px;font-size:.85rem;font-weight:800;text-transform:uppercase;letter-spacing:3px;margin-bottom:20px;}
+        .hero-photo{width:320px;height:320px;border-radius:50%;object-fit:cover;border:6px solid #fff;box-shadow:0 8px 30px rgba(232,135,156,.3);margin:0 auto 24px;display:block;transition:transform .3s;}
+        .hero-photo:hover{transform:scale(1.05) rotate(2deg);}
+        .hero h1{font-family:'Gaegu',cursive;font-size:3.5rem;color:var(--pink-dark);line-height:1.1;margin-bottom:8px;}
+        .hero .tagline{font-size:1.2rem;max-width:500px;margin:0 auto 24px;line-height:1.6;}
+        .cta-btn{display:inline-block;background:var(--pink-dark);color:#fff;padding:12px 32px;border-radius:30px;text-decoration:none;font-weight:700;font-size:1rem;transition:all .3s;box-shadow:0 4px 15px rgba(232,135,156,.4);}
+        .cta-btn:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(232,135,156,.5);}
+
+        /* SECTION TITLES */
+        .sec-title{text-align:center;font-family:'Gaegu',cursive;font-size:2.2rem;color:var(--pink-dark);margin-bottom:30px;}
+        .sec-title.brown{color:var(--brown);}
+
+        /* ACHIEVEMENT */
+        .achievements{background:#fff;padding:50px 20px;}
+        .achievement-grid{display:flex;justify-content:center;flex-wrap:wrap;gap:24px;max-width:900px;margin:0 auto;}
+        .achievement-card{background:var(--pink-light);border-radius:20px;padding:24px;text-align:center;width:170px;transition:transform .3s;}
+        .achievement-card:hover{transform:translateY(-5px);}
+        .achievement-card .emoji{font-size:2.5rem;margin-bottom:8px;}
+        .achievement-card h3{font-size:.95rem;color:var(--pink-dark);margin-bottom:4px;}
+        .achievement-card p{font-size:.8rem;color:#888;}
+
+        /* SPLIT SECTION (image + text side by side) */
+        .split{display:flex;align-items:center;justify-content:center;overflow:hidden;}
+        .split.reverse{flex-direction:row-reverse;}
+        .split-img{width:50%;max-height:420px;object-fit:cover;flex-shrink:0;}
+        .split-text{padding:40px 36px;flex:1;text-align:center;max-width:450px;margin:0 auto;}
+        .split-text h2{font-family:'Gaegu',cursive;font-size:2.2rem;color:var(--brown);margin-bottom:12px;}
+        .split-text p{font-size:1.05rem;line-height:1.7;color:#666;}
+        .split-text .quote{margin-top:16px;padding:12px 20px;background:#fff;border-radius:14px;font-style:italic;color:var(--pink-dark);font-size:1rem;}
+
+        .split.bg-lavender{background:var(--lavender);}
+        .split.bg-mint{background:var(--mint);}
+        .split.bg-peach{background:var(--peach);}
+        .split.bg-pink{background:var(--pink-light);}
+
+        /* WIDE BANNER */
+        .banner{position:relative;height:400px;overflow:hidden;}
+        .banner img{width:100%;height:100%;object-fit:cover;filter:brightness(.65);}
+        .banner .overlay{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;text-align:center;padding:20px;}
+        .banner .overlay h2{font-family:'Gaegu',cursive;font-size:2.8rem;margin-bottom:8px;text-shadow:0 2px 10px rgba(0,0,0,.4);}
+        .banner .overlay p{font-size:1.1rem;max-width:450px;line-height:1.6;text-shadow:0 1px 5px rgba(0,0,0,.4);}
+
+        /* FASHION GRID */
+        .fashion{background:var(--mint);padding:50px 20px;text-align:center;}
+        .fashion .subtitle{color:#888;margin-bottom:30px;}
+        .fashion-grid{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;max-width:900px;margin:0 auto;}
+        .fashion-card{position:relative;border-radius:20px;overflow:hidden;box-shadow:0 6px 20px rgba(0,0,0,.1);transition:transform .3s;}
+        .fashion-card:hover{transform:translateY(-6px);}
+        .fashion-card img{display:block;width:210px;height:280px;object-fit:cover;}
+        .fashion-card .label{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,.6));color:#fff;padding:30px 12px 12px;font-size:.85rem;font-weight:600;}
+
+        /* DUO SECTION */
+        .duo-section{background:var(--lavender);padding:50px 20px;text-align:center;}
+        .duo-img-wrap{max-width:700px;margin:0 auto 24px;border-radius:24px;overflow:hidden;box-shadow:0 8px 30px rgba(0,0,0,.12);}
+        .duo-img-wrap img{width:100%;height:auto;display:block;}
+        .duo-text h2{font-family:'Gaegu',cursive;font-size:2.4rem;color:var(--brown);margin-bottom:8px;}
+        .duo-text p{font-size:1.1rem;line-height:1.7;color:#666;}
+
+        /* GALLERY */
+        .gallery{background:#fff;padding:50px 20px;text-align:center;}
+        .gallery .subtitle{color:#888;margin-bottom:30px;}
+        .gallery-mosaic{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:200px;gap:10px;max-width:950px;margin:0 auto;}
+        .gallery-mosaic img{width:100%;height:100%;object-fit:cover;border-radius:14px;transition:transform .3s;cursor:pointer;}
+        .gallery-mosaic img:hover{transform:scale(1.03);}
+        .gallery-mosaic .span-2{grid-column:span 2;}
+        .gallery-mosaic .span-row{grid-row:span 2;}
+
+        /* SOCIAL */
+        .social-stats{background:var(--peach);padding:50px 20px;text-align:center;}
+        .stat-row{display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:14px;max-width:500px;margin-left:auto;margin-right:auto;}
+        .stat-platform{background:#fff;padding:8px 20px;border-radius:10px;font-weight:600;font-size:.95rem;width:140px;text-align:right;}
+        .stat-value{font-family:'Gaegu',cursive;font-size:1.5rem;font-weight:700;color:var(--pink-dark);width:220px;text-align:left;}
+
+        /* ABOUT */
+        .about{background:var(--pink-light);padding:50px 20px;text-align:center;}
+        .about-content{max-width:600px;margin:0 auto;line-height:1.8;font-size:1.05rem;}
+        .about-facts{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-top:24px;}
+        .fact{background:#fff;border-radius:14px;padding:16px 20px;text-align:center;min-width:120px;}
+        .fact .label{font-size:.75rem;color:#999;text-transform:uppercase;letter-spacing:1px;}
+        .fact .value{font-family:'Gaegu',cursive;font-size:1.4rem;font-weight:700;color:var(--pink-dark);}
+
+        /* FOOTER */
+        footer{background:var(--pink);color:#fff;text-align:center;padding:30px 20px;}
+        footer .logo{font-family:'Gaegu',cursive;font-size:1.6rem;font-weight:700;margin-bottom:8px;}
+        footer p{font-size:.8rem;opacity:.8;}
+        footer .social-links{margin:12px 0;}
+        footer .social-links a{color:#fff;text-decoration:none;margin:0 10px;font-size:1.3rem;transition:opacity .2s;}
+        footer .social-links a:hover{opacity:.7;}
+
+        /* RESPONSIVE */
+        @media(max-width:700px){
+            .hero h1{font-size:2.5rem;}
+            .hero-photo{width:250px;height:250px;}
+            .achievement-card{width:140px;}
+            .split{flex-direction:column!important;}
+            .split-img{width:100%;max-height:300px;}
+            .split-text{padding:24px 20px;}
+            .fashion-card img{width:150px;height:200px;}
+            .gallery-mosaic{grid-template-columns:1fr 1fr;grid-auto-rows:160px;}
+            .gallery-mosaic .span-2{grid-column:span 1;}
+            .gallery-mosaic .span-row{grid-row:span 1;}
+            .banner{height:300px;}
+            .banner .overlay h2{font-size:2rem;}
+            .stat-row{flex-direction:column;gap:4px;}
+            .stat-platform,.stat-value{width:auto;text-align:center;}
+            nav .nav-links a{margin:0 8px;font-size:.75rem;}
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+    <div class="logo">🌸 HANI-KONG 🌸</div>
+    <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#social">Social</a>
+        <a href="#contact">Contact</a>
+    </div>
+</nav>
+
+<!-- HERO — smile closeup -->
+<section class="hero">
+    <div class="hero-badge">✨ 세상에서 제일 귀여운 강아지 ✨</div>
+    <img src="images/smile.jpg" alt="Hani-Kong" class="hero-photo">
+    <h1>안녕, 나는 하니콩!</h1>
+    <p class="tagline">
+        꽃보다 예쁘고, 솜사탕보다 달콤한 초코 푸들 🐾<br>
+        매일 혀를 낼름거리며 세상을 행복하게 만드는 중!
+    </p>
+    <a href="#gallery" class="cta-btn">🐶 하니콩 더 보기</a>
+</section>
+
+<!-- ACHIEVEMENTS -->
+<section class="achievements">
+    <h2 class="sec-title">하니콩은 이런 아이에요!</h2>
+    <div class="achievement-grid">
+        <div class="achievement-card"><div class="emoji">👑</div><h3>꽃왕관 장인</h3><p>어떤 꽃이든 소화하는 패셔니스타</p></div>
+        <div class="achievement-card"><div class="emoji">👅</div><h3>혀 내밀기 달인</h3><p>24시간 혀 내밀기 가능</p></div>
+        <div class="achievement-card"><div class="emoji">👔</div><h3>패션 아이콘</h3><p>줄무늬도 금목걸이도 완벽 소화</p></div>
+        <div class="achievement-card"><div class="emoji">🚗</div><h3>나들이 요정</h3><p>카시트 위의 꼬마 공주</p></div>
+        <div class="achievement-card"><div class="emoji">💕</div><h3>심장 도둑</h3><p>만난 모든 사람의 마음을 훔침</p></div>
+    </div>
+</section>
+
+<!-- SPLIT: Sleepy — 배 보이며 누운 모습 -->
+<section class="split bg-lavender">
+    <img src="images/sleepy.jpg" alt="잠자는 하니콩" class="split-img">
+    <div class="split-text">
+        <h2>뭐 왜 내배 왜 😴</h2>
+        <p>배를 하늘로 향하고, 발을 쭉 뻗고,<br>세상 걱정 없이 잠드는 모습.</p>
+        <div class="quote">"왜 보는 건데... 내 배... 왜... 🐾"</div>
+    </div>
+</section>
+
+<!-- FASHION GRID — 4 cards -->
+<section class="fashion">
+    <h2 class="sec-title">하니콩 스타일 👗</h2>
+    <p class="subtitle">패션은 타고나는 것. 하니콩이 증명합니다.</p>
+    <div class="fashion-grid">
+        <div class="fashion-card"><img src="images/fashion.jpg" alt="줄무늬 + 금목걸이"><div class="label">🏷️ 스트라이프 + 골드체인</div></div>
+        <div class="fashion-card"><img src="images/flower.jpg" alt="꽃왕관"><div class="label">🌸 플라워 크라운 룩</div></div>
+        <div class="fashion-card"><img src="images/carseat.jpg" alt="오리 하네스"><div class="label">🐥 오리 하네스 + 나들이</div></div>
+        <div class="fashion-card"><img src="images/napping.jpg" alt="줄무늬 잠옷"><div class="label">😴 줄무늬 파자마 룩</div></div>
+    </div>
+</section>
+
+<!-- SPLIT: Hiding — 이불 속 숨은 모습 -->
+<section class="split reverse bg-pink">
+    <img src="images/hiding.jpg" alt="이불 속 하니콩" class="split-img">
+    <div class="split-text">
+        <h2>나는 가끔 눙물을 흘린..다... 🥺</h2>
+        <p>이불 틈새로 살짝 보이는 한쪽 눈.<br>세상이 슬퍼서가 아니라<br>너무 편해서 흘리는 눙물.</p>
+        <div class="quote">"흘린..다... 눙물을... 😢"</div>
+    </div>
+</section>
+
+<!-- DUO: Hani & KongKong -->
+<section class="duo-section">
+    <div class="duo-img-wrap">
+        <img src="images/duo-front.jpg" alt="하니 & 콩콩">
+    </div>
+    <div class="duo-text">
+        <h2>Hani & KongKong 🐾🐾</h2>
+        <p>하니(초코) & 콩콩(크림)<br>세상에서 가장 귀여운 듀오!<br>이름표까지 맞춘 찐 베프입니다.</p>
+    </div>
+</section>
+
+<!-- SPLIT: Groomed -->
+<section class="split bg-mint">
+    <img src="images/groomed.jpg" alt="미용 후 하니콩" class="split-img">
+    <div class="split-text">
+        <h2>너무 귀여운 빡빡공 ✂️</h2>
+        <p>곱슬머리를 싹 밀고 나면<br>완전 다른 매력이 폭발!<br>큰 눈망울이 더 또렷해지는 마법 ✨</p>
+        <div class="quote">"빡빡이인데 왜 더 귀여운 거야..." — 모든 사람의 반응</div>
+    </div>
+</section>
+
+<!-- BANNER: Back view -->
+<section class="banner">
+    <img src="images/backview.jpg" alt="뒷모습 하니콩">
+    <div class="overlay">
+        <h2>And of Course...</h2>
+        <h2>A Very Good Girl! 🐾</h2>
+        <p>뒷모습마저 사랑스러운 하니콩.<br>언제나 가족 곁을 지키는 든든한 막내.</p>
+    </div>
+</section>
+
+<!-- GALLERY — 13 photos mosaic -->
+<section class="gallery" id="gallery">
+    <h2 class="sec-title">하니콩 갤러리 📸</h2>
+    <p class="subtitle">하니콩의 다양한 모습을 감상하세요!</p>
+    <div class="gallery-mosaic">
+        <img src="images/smile.jpg" alt="웃는 하니콩" class="span-row">
+        <img src="images/flower.jpg" alt="꽃왕관" class="span-2">
+        <img src="images/carseat.jpg" alt="카시트">
+        <img src="images/fashion.jpg" alt="패셔니스타">
+        <img src="images/hiding.jpg" alt="숨바꼭질" class="span-2">
+        <img src="images/duo-front.jpg" alt="하니&콩 정면" class="span-2">
+        <img src="images/groomed.jpg" alt="미용 후">
+        <img src="images/napping.jpg" alt="줄무늬 파자마">
+        <img src="images/sleepy.jpg" alt="낮잠">
+        <img src="images/groomed2.jpg" alt="미용 후 2">
+        <img src="images/siblings.jpg" alt="커플룩" class="span-2">
+        <img src="images/backview.jpg" alt="뒷모습">
+        <img src="images/hero.jpg" alt="하니콩">
+    </div>
+</section>
+
+<!-- SOCIAL -->
+<section class="social-stats" id="social">
+    <h2 class="sec-title brown">People Love Hani-Kong! 🐾</h2>
+    <div class="stat-row"><div class="stat-platform">📸 Instagram</div><div class="stat-value">Coming Soon!</div></div>
+    <div class="stat-row"><div class="stat-platform">🎵 TikTok</div><div class="stat-value">Coming Soon!</div></div>
+    <div class="stat-row"><div class="stat-platform">📺 YouTube</div><div class="stat-value">Coming Soon!</div></div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+    <h2 class="sec-title brown">About Hani-Kong 🌷</h2>
+    <div class="about-content">
+        <p>하니콩은 사랑스러운 초코 토이푸들이에요.
+        꽃왕관을 쓰면 공주, 줄무늬를 입으면 힙스터,
+        이불 속에선 숨바꼭질 챔피언, 차에서는 나들이 요정!
+        든든한 단짝 콩콩이와 함께 매일 귀여운 일상을 만들어갑니다 🐶💖</p>
+        <div class="about-facts">
+            <div class="fact"><div class="label">이름</div><div class="value">하니</div></div>
+            <div class="fact"><div class="label">단짝</div><div class="value">콩콩</div></div>
+            <div class="fact"><div class="label">품종</div><div class="value">토이푸들</div></div>
+            <div class="fact"><div class="label">색상</div><div class="value">초코 🍫</div></div>
+            <div class="fact"><div class="label">특기</div><div class="value">혀 내밀기</div></div>
+            <div class="fact"><div class="label">성격</div><div class="value">애교만렙</div></div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="contact">
+    <div class="logo">🌸 HANI-KONG 🌸</div>
+    <div class="social-links">
+        <a href="#">📸</a>
+        <a href="#">🎵</a>
+        <a href="#">📺</a>
+    </div>
+    <p>© 2026 Hani-Kong the Sweetest Pup. All Rights Reserved.</p>
+    <p style="margin-top:4px;">Made with 💕</p>
+</footer>
+
+</body>
+</html>
