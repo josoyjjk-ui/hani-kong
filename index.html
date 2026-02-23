@@ -49,7 +49,7 @@
         /* SPLIT SECTION (image + text side by side) */
         .split{display:flex;align-items:center;justify-content:center;overflow:hidden;}
         .split.reverse{flex-direction:row-reverse;}
-        .split-img{width:50%;max-height:420px;object-fit:cover;flex-shrink:0;}
+        .split-img{width:50%;max-height:500px;object-fit:cover;object-position:center top;flex-shrink:0;}
         .split-text{padding:40px 36px;flex:1;text-align:center;max-width:450px;margin:0 auto;}
         .split-text h2{font-family:'Gaegu',cursive;font-size:2.2rem;color:var(--brown);margin-bottom:12px;}
         .split-text p{font-size:1.05rem;line-height:1.7;color:#666;}
@@ -173,7 +173,7 @@
 
 <!-- SPLIT: Sleepy — 배 보이며 누운 모습 -->
 <section class="split bg-lavender">
-    <img src="images/sleepy.jpg" alt="잠자는 하니콩" class="split-img">
+    <img src="images/sleepy.jpg" alt="잠자는 하니콩" class="split-img" style="object-position:center center;max-height:600px;">
     <div class="split-text">
         <h2>뭐 왜 내배 왜 😴</h2>
         <p>배를 하늘로 향하고, 발을 쭉 뻗고,<br>세상 걱정 없이 잠드는 모습.</p>
